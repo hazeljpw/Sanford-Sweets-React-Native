@@ -1,11 +1,11 @@
-import { Flatlist } from 'react-native';
+import { FlatList } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 
 const OrderNowScreen = (props) => {
     const renderOrderNowItem = ({ item: product }) => {
         return (
-            <ListItem>
-                <Avatar source={product.image} rounded />
+            <ListItem onPress={() => props.onPress(product.id)}>
+                <Avatar size='large' source={product.image}/>
                 <ListItem.Content>
                     <ListItem.Title>{product.name}</ListItem.Title>
                     <ListItem.Subtitle>
@@ -16,10 +16,12 @@ const OrderNowScreen = (props) => {
         );
     };
     return (
-        <Flatlist
+        <FlatList
             data={props.products}
             renderItem={renderOrderNowItem}
             keyExtractor={(item) => item.id.toString()}
         />
     );
 };
+
+export default OrderNowScreen;

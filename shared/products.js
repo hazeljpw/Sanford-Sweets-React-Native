@@ -43,7 +43,7 @@ export const PRODUCTS = [
     },
     {
         id: 4,
-        name:"Jamaica Blue Mountains",
+        name:"Jamaica Blue Mountain",
         image: require("../assets/images/coffee-jamaica.jpg"),
         elevation: 42, 
         featured: true,
@@ -53,26 +53,10 @@ export const PRODUCTS = [
     {
         id: 5,
         name:"Costa Rica La Gladiola",
-        image: require("../assets/images/coffee-jamaica.jpg"),
+        image: require("../assets/images/coffee-costa.jpg"),
         elevation: 42, 
         featured: true,
         description: "Offers a gratifying heft on the palate, enhancing the overall sense of fulfillment during your coffee journey.",
         price: '$15.00'
-    },
-    {
-        id: 6,
-        name:"Coffee Beans",
-        image: require("../assets/images/coffee-intro.jpg"),
-        elevation: 42, 
-        featured: true,
-        description: "Experience an array of distinctive coffee bean seections from various corners of the globe",
-    },
-    {
-        id: 7,
-        name:"Baked Goods",
-        image: require("../assets/images/flour-intro.jpg"),
-        elevation: 42, 
-        featured: true,
-        description: "Dicover variety of pastries and breads from diverse culinary traditions.",
-    },
+    }
 ];

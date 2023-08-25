@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { PRODUCTS } from '../shared/products';
 import ProductInfoScreen from './ProductInfoScreen';
 import OrderNowScreen from './OrderNowScreen';
@@ -10,14 +10,8 @@ const Main = () => {
     const [selectedProductId, setSelectedProductId] = useState();
 
     return (
-        <View 
-            style={{
-                flex: 1,
-                paddingTop:
-                    Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
-            }}
-        >
-            <OrderNowScreen 
+        <View style={styles.container}>
+            <OrderNowScreen
                 products={products}
                 onPress={(productId) => setSelectedProductId(productId)} 
             />
@@ -31,5 +25,13 @@ const Main = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '',
+      paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+    },
+  });
 
 export default Main;

@@ -4,21 +4,28 @@ import { Card } from 'react-native-elements';
 const RenderProduct = ({ product }) => {
     if (product) {
         return (
-            <Card containerStyle={{ padding: 0 }}>
-                <Card.Image source={product.image}>
-                    <View style={{ justifyContent: 'center', flex: 1 }}>
-                        <Text
-                            style={{
-                                color: 'white',
-                                textAlign: 'center',
-                                fontSize: 20
-                            }}
-                        >
-                            {product.name}
-                        </Text>
-                    </View>
-                </Card.Image>
-                <Text style={{ margin: 20 }}>{product.description}</Text>
+            <Card containerStyle={{ padding: 0, backgroundColor: '#ffdede' }}>
+                <Card.Image source={product.image}></Card.Image>
+                <View>
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            fontSize: 15,
+                            fontWeight: 'bold',
+                            marginTop: 5,
+                            color: 'brown'
+                        }}
+                    >
+                        {product.name}
+                    </Text>
+                </View>
+                <Text 
+                    style={{ 
+                        margin: 20,
+                    }}
+                >
+                    {product.description}
+                </Text>
             </Card>
         );
     }

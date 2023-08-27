@@ -1,27 +1,52 @@
-import { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { PRODUCTS } from '../shared/products';
+import { Platform, View, StyleSheet } from 'react-native';
 import ProductInfoScreen from './ProductInfoScreen';
 import OrderNowScreen from './OrderNowScreen';
 import Constants from 'expo-constants';
+import { createStackNavigator } from '@react-navigation/stack'
+
+//function component to return the Stack Navigator code for OrderNowScreen & ProductInfoscreen.
+const OrderNowNavigator = () => {
+    const Stack = createStackNavigator (); // const Stack holds the object returned from the createStackNavigator method.
+    return (
+        <Stack.Navigator
+            initialRouteName="Order Now"
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#1f140a',
+                },
+                headerTintColor: 'white', // the back arrow color.
+            }}
+        >
+        <Stack.Screen
+            name='Order Now'
+            component={OrderNowScreen}
+            options={{
+                title: 'Order Now',
+                headerTitleStyle: {
+                    color: 'burlywood',
+                    fontSize: 15
+                },
+            }}
+        />
+        <Stack.Screen
+            name='ProductInfo'
+            component={ProductInfoScreen}
+            options={({ route }) => ({
+                title: route.params.product.name,
+                headerTitleStyle: {
+                    color: 'burlywood',
+                },
+            })}
+        />
+        </Stack.Navigator>
+    )
+}
 
 const Main = () => {
-    const [products, setProducts] = useState(PRODUCTS);
-    const [selectedProductId, setSelectedProductId] = useState();
 
     return (
         <View style={styles.container}>
-            <OrderNowScreen
-                products={products}
-                onPress={(productId) => setSelectedProductId(productId)} 
-            />
-            <ProductInfoScreen
-                product={
-                    products.filter(
-                        (product) => product.id === selectedProductId
-                    )[0]
-                }
-            />
+            <OrderNowNavigator />
         </View>
     );
 };
@@ -29,7 +54,6 @@ const Main = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '',
       paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
     },
   });

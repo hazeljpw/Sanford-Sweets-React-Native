@@ -13,6 +13,7 @@ const OrderNowNavigator = () => {
             screenOptions={{
                 headerStyle: {
                     backgroundColor: '#1f140a',
+                    height: 35,
                 },
                 headerTintColor: 'white', // the back arrow color.
             }}
@@ -35,6 +36,7 @@ const OrderNowNavigator = () => {
                 title: route.params.product.name,
                 headerTitleStyle: {
                     color: 'burlywood',
+                    fontSize:15
                 },
             })}
         />

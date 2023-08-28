@@ -16,9 +16,9 @@ export default function App() {
               style={{ 
                 width: 20,
                 height: 20,
-                padding: 50,
+                padding: 70,
                 marginTop: 60,
-                marginLeft: 150,
+                marginLeft: 140,
                 marginBottom: -40
               }}
             />

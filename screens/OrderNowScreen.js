@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between', // Distribute items evenly along the container
         paddingHorizontal: 50, // Add horizontal padding to the ListItem container
         paddingVertical: 25, 
+        marginTop: -15
     },
     container: {
         flex: 1,

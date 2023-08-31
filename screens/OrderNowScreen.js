@@ -23,6 +23,7 @@ const OrderNowScreen = ({ navigation }) => {
                             style={{
                                 fontWeight:'bold',
                                 fontSize: 15,
+                                marginTop:20
                             }}
                         >
                             {product.name}
@@ -36,7 +37,7 @@ const OrderNowScreen = ({ navigation }) => {
                             {product.price}
                         </ListItem.Subtitle>
                     </ListItem.Content>
-                    <Avatar size='xlarge' source={product.image}/>
+                    <Avatar size='large' source={product.image}/>
                 </ListItem>
             </ImageBackground>
         );
@@ -55,9 +56,17 @@ export default OrderNowScreen;
 const styles = StyleSheet.create({
     imageBackground: {
         width: '100%',
-        height: 200, // Set an appropriate height for the background image
+        height: 200, 
     },
     listItemContainer: {
         backgroundColor: 'transparent',
+        flexDirection: 'row', // Align avatar and content horizontally
+        alignItems: 'center', // Align items vertically within the container
+        justifyContent: 'space-between', // Distribute items evenly along the container
+        paddingHorizontal: 50, // Add horizontal padding to the ListItem container
+        paddingVertical: 25, 
+    },
+    container: {
+        flex: 1,
     },
 });

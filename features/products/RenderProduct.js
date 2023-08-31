@@ -7,7 +7,7 @@ const RenderProduct = ({ product }) => { // instead of passong the props paramet
             <Card containerStyle={{ padding: 10, backgroundColor: 'white' }}>
                 <Card.Image
                     source={product.image}
-                    style={{ weight: 100, height: 370}}
+                    style={{ weight: 100, height: 300}}
                 >
                 </Card.Image>
                 <View>

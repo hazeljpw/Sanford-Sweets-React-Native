@@ -2,7 +2,32 @@ import { Platform, View, StyleSheet } from 'react-native';
 import ProductInfoScreen from './ProductInfoScreen';
 import OrderNowScreen from './OrderNowScreen';
 import Constants from 'expo-constants';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './HomeScreen';
+
+const Tab = createBottomTabNavigator();
+
+const screenOptions = {
+    headerTintColor: 'burlywood',
+    headerStyle: {
+        backgroundColor: '#1f140a',
+        height: 35,
+    }
+} 
+
+const HomeNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen 
+                name='Home'
+                component={HomeScreen}
+                options={{ title: 'Home'}}
+            />
+        </Stack.Navigator>
+  );
+}
 
 //function component to return the Stack Navigator code for OrderNowScreen & ProductInfoscreen.
 const OrderNowNavigator = () => {
@@ -10,13 +35,7 @@ const OrderNowNavigator = () => {
     return (
         <Stack.Navigator
             initialRouteName="Order Now"
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#1f140a',
-                    height: 35,
-                },
-                headerTintColor: 'white', // the back arrow color.
-            }}
+            screenOptions={screenOptions}
         >
         <Stack.Screen
             name='Order Now'
@@ -48,7 +67,33 @@ const Main = () => {
 
     return (
         <View style={styles.container}>
-            <OrderNowNavigator />
+            <Tab.Navigator
+                initialRouteName='Home'
+                tabBarOptions={{
+                    // showLabel: false, this will cause the name to not show
+                    style: {
+                        position: 'absolute',
+                        bottom: 10,
+                        left: 5,
+                        right: 5,
+                        elevation: 0,
+                        backgroundColor: 'white', //#1f140a
+                        borderRadius: 15,
+                        height: 60,
+                    }
+                 }}
+                >
+                <Tab.Screen
+                    name='Home'
+                    component={HomeNavigator}
+                    options={{ title: 'Home'}}
+                />
+                <Tab.Screen
+                    name='Order Now'
+                    component={OrderNowNavigator}
+                    options={{ title: 'Order Now' }}
+                />
+            </Tab.Navigator>
         </View>
     );
 };

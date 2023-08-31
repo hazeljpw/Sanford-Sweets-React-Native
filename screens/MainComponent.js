@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import AboutScreen from './AboutScreen';
+import ContactScreen from './ContactScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -48,9 +49,21 @@ const AboutNavigator = () => {
   );
 }
 
-//function component to return the Stack Navigator code for OrderNowScreen & ProductInfoscreen.
+const ContactNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen 
+                name='Contact'
+                component={ContactScreen}
+                options={{ title: 'Contact'}}
+            />
+        </Stack.Navigator>
+  );
+}
+
 const OrderNowNavigator = () => {
-    const Stack = createStackNavigator (); // const Stack holds the object returned from the createStackNavigator method.
+    const Stack = createStackNavigator ();
     return (
         <Stack.Navigator
             initialRouteName="Order Now"
@@ -116,6 +129,11 @@ const Main = () => {
                     name='About'
                     component={AboutNavigator}
                     options={{ title: 'About Us' }}
+                />
+                <Tab.Screen
+                    name='Contact'
+                    component={ContactNavigator}
+                    options={{ title: 'Contact Us' }}
                 />
             </Tab.Navigator>
         </View>

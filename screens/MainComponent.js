@@ -5,6 +5,7 @@ import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
+import AboutScreen from './AboutScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,12 @@ const screenOptions = {
     headerStyle: {
         backgroundColor: '#1f140a',
         height: 35,
-    }
+        fontSize: 15,
+    },
+    headerTitleStyle: {
+        color: 'burlywood',
+        fontSize:18
+    },
 } 
 
 const HomeNavigator = () => {
@@ -24,6 +30,19 @@ const HomeNavigator = () => {
                 name='Home'
                 component={HomeScreen}
                 options={{ title: 'Home'}}
+            />
+        </Stack.Navigator>
+  );
+}
+
+const AboutNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen 
+                name='About'
+                component={AboutScreen}
+                options={{ title: 'About'}}
             />
         </Stack.Navigator>
   );
@@ -44,7 +63,7 @@ const OrderNowNavigator = () => {
                 title: 'Order Now',
                 headerTitleStyle: {
                     color: 'burlywood',
-                    fontSize: 15
+                    fontSize: 18
                 },
             }}
         />
@@ -55,7 +74,7 @@ const OrderNowNavigator = () => {
                 title: route.params.product.name,
                 headerTitleStyle: {
                     color: 'burlywood',
-                    fontSize:15
+                    fontSize:18
                 },
             })}
         />
@@ -92,6 +111,11 @@ const Main = () => {
                     name='Order Now'
                     component={OrderNowNavigator}
                     options={{ title: 'Order Now' }}
+                />
+                <Tab.Screen
+                    name='About'
+                    component={AboutNavigator}
+                    options={{ title: 'About Us' }}
                 />
             </Tab.Navigator>
         </View>

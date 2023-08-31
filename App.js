@@ -22,7 +22,7 @@ export default function App() {
                 marginBottom: -40
               }}
             />
-            
+
             <NavigationContainer>
                 <Main />
             </NavigationContainer>

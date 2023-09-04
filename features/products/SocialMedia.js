@@ -1,15 +1,12 @@
-import React from 'react';
-import { View, Linking } from 'react-native'; // Import necessary components
-import { SocialIcon } from 'react-native-elements'; // Import SocialIcon from your library
+import { View, Linking } from 'react-native';
+import { SocialIcon } from 'react-native-elements';
 
 const SocialMediaIcons = () => {
-  // Define the URLs you want to direct users to for each social media icon
   const facebookURL = 'https://www.facebook.com/';
   const instagramURL = 'https://www.instagram.com/';
   const twitterURL = 'https://twitter.com/';
   const youtubeURL = 'https://www.youtube.com/';
 
-  // Function to open a URL in the device's default browser
   const openURL = (url) => {
     Linking.openURL(url)
       .catch((err) => console.error('An error occurred', err));
@@ -17,7 +14,6 @@ const SocialMediaIcons = () => {
 
   return (
     <View style={{ flexDirection: 'row' }}>
-      {/* Add onPress to each SocialIcon to open the corresponding URL */}
       <SocialIcon
         light
         type='facebook'

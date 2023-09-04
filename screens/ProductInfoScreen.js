@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, ImageBackground } from 'react-native';
 import RenderProduct from '../features/products/RenderProduct';
 

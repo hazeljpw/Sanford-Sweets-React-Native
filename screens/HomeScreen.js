@@ -1,14 +1,13 @@
-import React from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 const data = [
   { title: 'Coffee Beans',
-    subtitle: 'Experience an array of distinctive coffee bean seections from various corners of the globe',
+    subtitle: 'Experience an array of distinctive coffee bean selections from various corners of the globe.',
     image: require('../assets/images/coffee-intro.jpg') 
   },
-  { title: 'Bake Goods',
-    subtitle:'Discover variety of pastries and breads from diverse culinary traditions',
+  { title: 'Baked Goods',
+    subtitle:'Discover variety of pastries and breads from diverse culinary traditions.',
     image: require('../assets/images/flour-intro.jpg') }
 ];
 
@@ -27,18 +26,18 @@ const renderItem = ({ item }) => (
 const Homescreen = () => {
   return (
     <ImageBackground
-                source={require('../assets/images/background.jpg')}
-                style={styles.imageBackground}
-            >
+        source={require('../assets/images/background.jpg')}
+        style={styles.imageBackground}
+    >
     <View style={styles.container}>
-      <Carousel
-        data={data}
-        renderItem={renderItem}
-        sliderWidth={300}
-        itemWidth={300}
-        autoplay={true}
-        autoplayInterval={7000}
-      />
+        <Carousel
+          data={data}
+          renderItem={renderItem}
+          sliderWidth={300}
+          itemWidth={300}
+          autoplay={true}
+          autoplayInterval={8000}
+        />
     </View>
     </ImageBackground>
   );

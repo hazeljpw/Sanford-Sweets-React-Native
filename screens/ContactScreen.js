@@ -1,6 +1,5 @@
 import { ScrollView,ImageBackground,StyleSheet } from "react-native";
-import { Card, Text, SocialIcon } from 'react-native-elements';
-import { View } from 'react-native'
+import { Card, Text } from 'react-native-elements';
 import SocialMedia from "../features/products/SocialMedia";
 
 const ContactScreen = () => {

@@ -1,13 +1,13 @@
 import { Platform, View, StyleSheet } from 'react-native';
+import {Icon} from 'react-native-elements';
 import ProductInfoScreen from './ProductInfoScreen';
-import OrderNowScreen from './OrderNowScreen';
+import ProductListScreen from './ProductListScreen';
 import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import AboutScreen from './AboutScreen';
 import ContactScreen from './ContactScreen';
-import {Icon} from 'react-native-elements';
 import AllergenScreen from './AllergenScreen';
 
 const Tab = createBottomTabNavigator();
@@ -77,7 +77,7 @@ const AllergenNavigator = () => {
 }
 
 
-const OrderNowNavigator = () => {
+const ProductListNavigator = () => {
     const Stack = createStackNavigator ();
     return (
         <Stack.Navigator
@@ -86,7 +86,7 @@ const OrderNowNavigator = () => {
         >
         <Stack.Screen
             name='Order Now'
-            component={OrderNowScreen}
+            component={ProductListScreen}
             options={{
                 title: 'Order Now',
                 headerTitleStyle: {
@@ -147,8 +147,8 @@ const Main = () => {
                     }}
                 />
                 <Tab.Screen
-                    name='Order Now'
-                    component={OrderNowNavigator}
+                    name='Product'
+                    component={ProductListNavigator}
                     options={{ title: 'Order Now',
                     tabBarIcon: ({ color }) => (
                         <Icon 

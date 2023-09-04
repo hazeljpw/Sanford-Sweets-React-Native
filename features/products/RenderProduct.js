@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { Card, Icon } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 
-const RenderProduct = ( props ) => { // instead of passong the props parameter, the product is destructured since this is the only prop that this component is getting for now.
+const RenderProduct = ( props ) => {
     const { product } = props;
     if (product) {
         return (
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     iconContainer: {
-        alignItems: 'center', // Center horizontally
-        marginTop: 10, // Adjust as needed
+        alignItems: 'center',
+        marginTop: 10,
     },
 })
 

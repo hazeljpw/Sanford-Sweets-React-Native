@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import { PRODUCTS } from '../shared/products';
-import { ImageBackground, StyleSheet } from 'react-native';
 
-const OrderNowScreen = ({ navigation }) => {
+const OrderListScreen = ({ navigation }) => {
     const [products, setProducts] = useState(PRODUCTS);
 
     const renderOrderNowItem = ({ item: product }) => {
@@ -16,7 +15,7 @@ const OrderNowScreen = ({ navigation }) => {
                 <ListItem 
                     onPress={() => navigation.navigate('ProductInfo', { product })}
                     containerStyle={styles.listItemContainer}
-                    underlayColor="#DDBEA9"
+                    underlayColor='transparent'
                 >
                     <ListItem.Content>
                         <ListItem.Title
@@ -51,7 +50,7 @@ const OrderNowScreen = ({ navigation }) => {
     );
 };
 
-export default OrderNowScreen;
+export default OrderListScreen;
 
 const styles = StyleSheet.create({
     imageBackground: {
@@ -60,14 +59,14 @@ const styles = StyleSheet.create({
     },
     listItemContainer: {
         backgroundColor: 'transparent',
-        flexDirection: 'row', // Align avatar and content horizontally
-        alignItems: 'center', // Align items vertically within the container
-        justifyContent: 'space-between', // Distribute items evenly along the container
-        paddingHorizontal: 50, // Add horizontal padding to the ListItem container
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 50,
         paddingVertical: 25, 
         marginTop: -15
     },
     container: {
         flex: 1,
-    },
+    }
 });

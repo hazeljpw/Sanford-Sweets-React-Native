@@ -36,6 +36,8 @@ const Homescreen = () => {
         renderItem={renderItem}
         sliderWidth={300}
         itemWidth={300}
+        autoplay={true}
+        autoplayInterval={7000}
       />
     </View>
     </ImageBackground>

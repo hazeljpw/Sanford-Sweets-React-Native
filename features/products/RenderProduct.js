@@ -11,16 +11,6 @@ const RenderProduct = ( props ) => { // instead of passong the props parameter, 
                     style={{ weight: 100, height: 250}}
                 >
                 </Card.Image>
-                <View style={styles.iconContainer}>
-                    <Icon
-                        name={props.isFavorite ? 'cart' : 'cart-plus'}
-                        type='font-awesome'
-                        color='chocolate'
-                        raised
-                        reverse
-                        onPress={() => props.isFavorite ? console.log('Already in the cart') : props.markFavorite()}
-                    />
-                </View>
                 <Text
                     style={{
                         textAlign: 'center',
@@ -57,5 +47,3 @@ const styles = StyleSheet.create({
 })
 
 export default RenderProduct;
-
-// padding: 10, backgroundColor: 'white' }

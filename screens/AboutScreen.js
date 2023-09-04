@@ -1,14 +1,13 @@
-import { ImageBackground, Text, StyleSheet } from 'react-native';
+import { ImageBackground, Text, StyleSheet,View } from 'react-native';
 import { Card } from 'react-native-elements';
-import Constants from 'expo-constants';
-import { ScrollView } from 'react-native-gesture-handler';
 
-const AboutScreen= () => {
+const AboutScreen = () => {
     return (
         <ImageBackground
             source={require('../assets/images/background.jpg')}
             style={styles.imageBackground}
         >
+            <View style={{ marginTop: -5 }}>
             <Card>
                 <Card.Title>About Us</Card.Title>
                 <Card.Image source={require('../assets/images/aboutUs.jpg')}></Card.Image>
@@ -17,9 +16,10 @@ const AboutScreen= () => {
                     Sanford Sweet is located in the Sanford, Florida. We are currently delivering all products wth no additional charges in Central Florida locations.
                 </Text>
                 <Text style={{ margin: 10 }}>
-                    We're all about celebrating differences through our delicious baked goods and coffee. Using organic ingredients, we ensure both quality and sustainability. Collaborating with eco-friendly coffee distributors, we promote responsible sourcing and fair trade. Join us in enjoying unique flavors while contributing to a more eco-conscious world.
+                    We're all about celebrating differences through our delicious baked goods and coffee. Using organic ingredients, we ensure both quality and sustainability. Collaborating with eco-friendly coffee distributors, we promote responsible sourcing and fair trade.
                 </Text>
             </Card>
+            </View>
     </ImageBackground>
     );
 }

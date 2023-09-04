@@ -6,20 +6,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import AboutScreen from './AboutScreen';
-import ContactScreen from './ContactScreen'
+import ContactScreen from './ContactScreen';
+import {Icon} from 'react-native-elements';
+import AllergenScreen from './AllergenScreen';
 
 const Tab = createBottomTabNavigator();
 
 const screenOptions = {
-    headerTintColor: 'burlywood',
+    headerTintColor: 'white',
     headerStyle: {
         backgroundColor: '#1f140a',
-        height: 35,
-        fontSize: 15,
+        height: 40,
     },
     headerTitleStyle: {
         color: 'burlywood',
-        fontSize:18
+        fontSize:18,
     },
 } 
 
@@ -30,7 +31,7 @@ const HomeNavigator = () => {
             <Stack.Screen 
                 name='Home'
                 component={HomeScreen}
-                options={{ title: 'Home'}}
+                options={{ title: 'Home' }}
             />
         </Stack.Navigator>
   );
@@ -43,7 +44,7 @@ const AboutNavigator = () => {
             <Stack.Screen 
                 name='About'
                 component={AboutScreen}
-                options={{ title: 'About'}}
+                options={{ title: 'About Us' }}
             />
         </Stack.Navigator>
   );
@@ -56,11 +57,25 @@ const ContactNavigator = () => {
             <Stack.Screen 
                 name='Contact'
                 component={ContactScreen}
-                options={{ title: 'Contact'}}
+                options={{ title: 'Contact Us' }}
             />
         </Stack.Navigator>
   );
 }
+
+const AllergenNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen 
+                name='Allergen'
+                component={AllergenScreen}
+                options={{ title: 'Allergen' }}
+            />
+        </Stack.Navigator>
+  );
+}
+
 
 const OrderNowNavigator = () => {
     const Stack = createStackNavigator ();
@@ -77,7 +92,7 @@ const OrderNowNavigator = () => {
                 headerTitleStyle: {
                     color: 'burlywood',
                     fontSize: 18
-                },
+                }
             }}
         />
         <Stack.Screen
@@ -102,14 +117,14 @@ const Main = () => {
             <Tab.Navigator
                 initialRouteName='Home'
                 tabBarOptions={{
-                    // showLabel: false, this will cause the name to not show
+                    showLabel: false,
                     style: {
                         position: 'absolute',
                         bottom: 10,
                         left: 5,
                         right: 5,
                         elevation: 0,
-                        backgroundColor: 'white', //#1f140a
+                        backgroundColor: '#1f140a',
                         borderRadius: 15,
                         height: 60,
                     }
@@ -118,22 +133,78 @@ const Main = () => {
                 <Tab.Screen
                     name='Home'
                     component={HomeNavigator}
-                    options={{ title: 'Home'}}
+                    options={{ 
+                        title: 'Home',
+                        tabBarIcon: ({ color }) => (
+                            <Icon 
+                                name='home'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24}}
+                                color='burlywood'
+                            />
+                        )
+                    }}
                 />
                 <Tab.Screen
                     name='Order Now'
                     component={OrderNowNavigator}
-                    options={{ title: 'Order Now' }}
+                    options={{ title: 'Order Now',
+                    tabBarIcon: ({ color }) => (
+                        <Icon 
+                            name='list-alt'
+                            type='font-awesome'
+                            size={24}
+                            iconStyle={{ width: 24}}
+                            color='burlywood'
+                        />
+                    )
+                    }}
                 />
                 <Tab.Screen
                     name='About'
                     component={AboutNavigator}
-                    options={{ title: 'About Us' }}
+                    options={{ title: 'About Us',
+                    tabBarIcon: ({ color }) => (
+                        <Icon 
+                            name='info-circle'
+                            type='font-awesome'
+                            size={24}
+                            iconStyle={{ width: 24}}
+                            color='burlywood'
+                        />
+                    )
+                }}
                 />
                 <Tab.Screen
                     name='Contact'
                     component={ContactNavigator}
-                    options={{ title: 'Contact Us' }}
+                    options={{ title: 'Contact Us',
+                    tabBarIcon: ({ color }) => (
+                        <Icon 
+                            name='phone'
+                            type='font-awesome'
+                            size={24}
+                            iconStyle={{ width: 24}}
+                            color='burlywood'
+                        />
+                    )
+                }}
+                />
+                <Tab.Screen
+                    name='Allergen'
+                    component={AllergenNavigator}
+                    options={{ title: 'Allergen',
+                    tabBarIcon: ({ color }) => (
+                        <Icon 
+                            name='warning'
+                            type='font-awesome'
+                            size={24}
+                            iconStyle={{ width: 24}}
+                            color='burlywood'
+                        />
+                    )
+                }}
                 />
             </Tab.Navigator>
         </View>

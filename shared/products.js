@@ -23,7 +23,6 @@ export const PRODUCTS = [
     {
         id: 3,
         name:"Mexico Mocabe HG",
-        
         image: require("../assets/images/coffee-mexico.jpg"),
         description: "A rich dark chocolate notes, subtle touch of citrusy sweetness, hints of nuttiness, all culminating in a harmoniously balanced body.",
         price: '$15.00'

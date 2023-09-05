@@ -81,14 +81,14 @@ const ProductListNavigator = () => {
     const Stack = createStackNavigator ();
     return (
         <Stack.Navigator
-            initialRouteName="Order Now"
+            initialRouteName="Product List"
             screenOptions={screenOptions}
         >
         <Stack.Screen
-            name='Order Now'
+            name='Product List'
             component={ProductListScreen}
             options={{
-                title: 'Order Now',
+                title: 'Products',
                 headerTitleStyle: {
                     color: 'burlywood',
                     fontSize: 18
